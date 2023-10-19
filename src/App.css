@@ -154,7 +154,7 @@ label {
 	border-radius: 0.25rem;
 }
 
-.comfirm span {
+.comfirm strong {
 	color: blue;
 }
 
@@ -213,7 +213,10 @@ label {
 	font-weight: 600;
 }
 
+
 footer section {
+	background: #495e57;
+	color: #fff;
 	padding: 0.625rem 13%;
 	display: flex;
 	justify-content: space-between;
@@ -240,6 +243,10 @@ footer ul {
 
 footer ul li {
 	padding: 0.5rem 0;
+}
+
+footer a {
+	color: #a9c8be;
 }
 
 @media screen and (max-width: 48rem) {

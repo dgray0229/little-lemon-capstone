@@ -22,7 +22,7 @@ interface Action {
 }
 
 export enum ActionType {
-    DATE = 'DATE',
+    SET_DATE = 'SET_DATE',
     TIME = 'TIME',
     GUESTS = 'GUESTS',
     OCCASION = 'OCCASION',
@@ -43,6 +43,8 @@ const initialState: Reservation = {
 
 function reducer(reservation: Reservation, action: Action): Reservation {
     switch (action.type) {
+        case ActionType.SET_DATE:
+            return { ...reservation, date: action.payload } as Reservation;
         case ActionType.SET_TIMES:
             return { ...reservation, times: action.payload } as Reservation;
         case ActionType.SET_GUESTS:

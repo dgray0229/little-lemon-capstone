@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import bannerImg from '../assets/images/restaurantfood.jpg';
-export interface IHeaderProps {
-}
 
 export function Header () {
     return (
@@ -11,7 +9,7 @@ export function Header () {
                     <h2>Little Lemon</h2>
                     <h3>Chicago</h3>
                     <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-                    <button aria-label='Reserve a Table'>Reserve Table</button>
+                    <Link to="/booking" role="button"><button data-testid="reservation-button">Reserve Table</button></Link>
                 </div>
                 <div className='banner-img'>
                     <img src={bannerImg} alt="A waiter holding a tray of food." />

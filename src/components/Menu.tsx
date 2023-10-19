@@ -1,18 +1,37 @@
-import { useEffect, useState, lazy } from 'react';
-
-export interface IMenuProps {
-}
+import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 export function Menu () {
   const [recipes, setRecipes] = useState([]);
 
+  function handleOrder(id: string) {
+    console.log(id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "All our items are delicious, we just want to make sure you want this one!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#495e57',
+      cancelButtonColor: '#d44545',
+      confirmButtonText: 'Yes, order it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Ordered!',
+          'Your order is processing.',
+          'success'
+        )
+      }
+    })
+
+  }
   async function fetchRecipes () {
     try {
-      const response = await fetch('../recipes.json');
+      const response = await fetch('/recipes.json');
       const data = await response.json();
       setRecipes(data);
     }
-    catch (error) {
+    catch(error: unknown) {
       console.error(error);
     }
   }
@@ -25,10 +44,9 @@ export function Menu () {
     <div className='menu-container'>
       <div>
         <h2>This weeks specials!</h2>
-        <button>Order Now</button>
       </div>
       <div className='cards'>
-        {recipes.map(({ id, image, title, name, description, price }) => (
+        {recipes && recipes.map(({ id, image, title, name, description, price }) => (
           <div className='menu-items' key={id}>
             <img src={image} alt={name} />
             <div className='menu-content'>
@@ -37,7 +55,7 @@ export function Menu () {
                 <p>{price}</p>
               </div>
               <p>{description}</p>
-              <button className='order-button'>Order Now</button>
+              <button className='order-button' onClick={() => handleOrder(id)}>Order Now</button>
             </div>
           </div>
         ))}

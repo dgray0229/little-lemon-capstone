@@ -1,7 +1,3 @@
-
-export interface IConfirmedBookingProps {
-}
-
 export function ConfirmedBooking () {
   return (
     <div className='confirm'>

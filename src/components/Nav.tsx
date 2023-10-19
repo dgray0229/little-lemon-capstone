@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import logo from '../assets/images/logo.svg';
-export interface INavProps {
-}
 
 export function Nav () {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +10,6 @@ export function Nav () {
   function toggleClass (status: boolean, className: string): string {
     return status ? className : '';
   }
-
 
   return (
     <nav className={`navbar ${toggleClass(menuOpen, 'open')}`}>

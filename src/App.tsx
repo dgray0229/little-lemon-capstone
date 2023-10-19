@@ -1,15 +1,13 @@
-import { BookingProvider, Nav, Header, BookingForm } from './components';
+import { BookingProvider, Nav, Main, Menu, Footer } from './components';
 import './App.css'
 
-function App () {
-
+export function App () {
   return (
     <BookingProvider>
       <Nav />
-      <Header />
-      <BookingForm />
+      <Main />
+      <Menu />
+      <Footer />
     </BookingProvider>
   )
 }
-
-export default App

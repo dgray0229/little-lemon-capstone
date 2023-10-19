@@ -5,6 +5,7 @@ import { ConfirmedBooking } from './ConfirmedBooking';
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Main } from "./Main";
+import { Menu } from "./Menu";
 import { Nav } from "./Nav";
 
 export {
@@ -16,5 +17,6 @@ export {
     Footer,
     Header,
     Main,
+    Menu,
     Nav,
 };

@@ -1,18 +1,17 @@
-import * as React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Booking, ConfirmedBooking } from './index';
-import { Header } from './index';
-export interface IMainProps {
-}
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Booking, ConfirmedBooking, Header } from './index';
+
+const router = createBrowserRouter([
+  { path: '/', element: <Header /> },
+  { path: '/booking', element: <Booking /> },
+  { path: '/confirmed', element: <ConfirmedBooking /> },
+  { path: '*', element: <h1>Not Found</h1> },
+]);
 
 export function Main () {
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<Header />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/confirmed" element={<ConfirmedBooking />} />
-      </Routes>
+      <RouterProvider router={router} />
     </main>
   );
 }

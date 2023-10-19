@@ -1,12 +1,6 @@
 import { useContext } from 'react';
 import { ActionType, BookingContext } from './BookingContext';
 
-export interface IBookingFormProps {
-}
-
-
-
-
 export function BookingForm () {
   const { dispatch, ...reservation } = useContext(BookingContext);
 
@@ -16,8 +10,7 @@ export function BookingForm () {
         <fieldset>
           <div>
             <label htmlFor="book-date">Choose Date</label>
-            <input id="book-date" value={reservation.date} type='date' required onChange={(e) => dispatch({ type: ActionType.SET_TIMES, payload: e.target.value })} />
-
+            <input id="book-date" value={reservation.date} type='date' required onChange={(e) => dispatch({ type: ActionType.SET_DATE, payload: e.target.value })} />
           </div>
           <div>
             <label htmlFor="book-time">Choose Time</label>
@@ -31,7 +24,7 @@ export function BookingForm () {
           </div>
           <div>
             <label htmlFor="book-guests">Number of Guests</label>
-            <input id="book-guests" value={reservation.guests} type='number' required onChange={e => dispatch({ type: ActionType.SET_GUESTS, payload: e.target.value })} />
+            <input id="book-guests" value={reservation.guests} type='number' min="1" max="8" required onChange={(e) => dispatch({ type: ActionType.SET_GUESTS, payload: e.target.value })} />
           </div>
           <div>
             <label htmlFor="book-occasion">Occasion</label>
