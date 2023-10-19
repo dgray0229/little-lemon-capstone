@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+# Little Lemon Capstone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a version of the capstone project for the Meta Frontend Certification.
 
-Currently, two official plugins are available:
+Per the certification instructions:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+This course's final project assessment consists of a peer review and one final graded quiz. 
 
-## Expanding the ESLint configuration
+The purpose of the assessment
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The primary purpose of the assessment is to check your knowledge and understanding of the key learning objectives of the course.  The assessment is designed to help you make sure that you can apply what you have learned. Most importantly, the assessment helps you establish which topics you have mastered and which topics require further focus before completing the course.
 
-- Configure the top-level `parserOptions` property like this:
+What to expect from the peer review 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+You will combine the skills and knowledge that you applied throughout the course to write code to create a form that handles table bookings for the Little Lemon restaurant.  Your table bookings form will all be assessed in the peer review submission, and you will assess some of your peers' projects too.
+
+What to expect from the final graded quiz 
+
+The quiz only tests the topics you have already covered, so there shouldn't be any surprises. Please review the feedback on your answers and, where necessary, go back and work through the topics that require further attention. 
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+So for the final project, I added a small navigation using React Router. On form submission, it routes to a confirm component. You can add to your cart items selected from the menu, with a popup signifying the order has been added to cart.
+
+Although the project uses advanced features like the Context API and the useReducer hook, I was not required to track the form data after submission, or how many items were added to the cart, so I chose not to implement those features.
+
+Although, to add to the challenge, I decided to build out the project in TypeScript for type safety.
+
+The project has some basic unit tests written with Vitest and the React version of Testing Library.
+
+The goal for me was to pass through this certification as quickly as possible but I still decided to add some extra features to deepen my knowledge of certain concepts in TypeScript, Unit Testing, and the proper use of the Flux pattern and Context API.
+
+I hope you enjoy the demo or perhaps learn from this project.
+
+[Project Demo](https://github.com/dgray0229/little-lemon-capstone)
