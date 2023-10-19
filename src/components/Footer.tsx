@@ -1,4 +1,3 @@
-import * as React from 'react';
 import logo from '../assets/images/logo.svg';
 
 export function Footer () {
