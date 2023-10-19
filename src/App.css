@@ -154,12 +154,13 @@ label {
 	border-radius: 0.25rem;
 }
 
-.comfirm strong {
+.confirm strong {
 	color: blue;
 }
 
 /* menu items */
 
+.confirm,
 .menu-container {
 	margin: 6.875rem auto;
 	padding: 0.625rem 13%;

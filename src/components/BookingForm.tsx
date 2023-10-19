@@ -1,12 +1,23 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { ActionType, BookingContext } from './BookingContext';
 
 export function BookingForm () {
   const { dispatch, ...reservation } = useContext(BookingContext);
-
+  const navigate = useNavigate();
+  function handleSubmit(e: { preventDefault: () => void; }) {
+    e.preventDefault();
+    dispatch({type: ActionType.SUBMIT_FORM});
+  }
+  useEffect(() => {
+    if (reservation.submitted) {
+      navigate('/confirmed');
+      dispatch({type: ActionType.RESET});
+    }
+  }, [dispatch, navigate, reservation.submitted]);
   return (
     <section>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <fieldset>
           <div>
             <label htmlFor="book-date">Choose Date</label>

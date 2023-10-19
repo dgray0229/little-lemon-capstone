@@ -1,5 +1,5 @@
 import React, { createContext, useMemo, useReducer } from 'react';
-
+import { useNavigate } from 'react-router';
 export interface IBookingContextProps {
     children: React.ReactNode;
 }
@@ -18,7 +18,7 @@ interface BookingValue extends Reservation {
 
 interface Action {
     type: ActionType;
-    payload: unknown;
+    payload?: unknown;
 }
 
 export enum ActionType {
@@ -30,6 +30,7 @@ export enum ActionType {
     SET_GUESTS = 'SET_GUESTS',
     SUBMIT_FORM = 'SUBMIT_FORM',
     FETCH_RESERVATIONS = 'FETCH_RESERVATIONS',
+    RESET = 'RESET',
 }
 
 const initialState: Reservation = {
@@ -51,6 +52,8 @@ function reducer(reservation: Reservation, action: Action): Reservation {
             return { ...reservation, guests: action.payload } as Reservation;
         case ActionType.SUBMIT_FORM:
             return { ...reservation, submitted: true } as Reservation;
+        case ActionType.RESET:
+            return { ...initialState } as Reservation;
         default:
             return reservation;
     }
