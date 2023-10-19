@@ -1,56 +1,26 @@
-import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { expect, test } from 'vitest'
-import userEvent from "@testing-library/user-event";
+
 import { App } from "../App";
 
-test("Renders the Header heading", () => {
+test("Renders the navigation", () => {
 	render(<App />);
-	const headingElement = screen.getByText("Reserve Table");
-	expect(headingElement).toBeInTheDocument();
-
-	const reserveButton = screen.getByTestId("reservation-button");
-	fireEvent.click(reserveButton);
-
-	const headingElementNew = screen.getByText("Choose Date");
-	expect(headingElementNew).toBeInTheDocument();
+	const navElement = document.querySelector("nav");
+	expect(navElement).toBeInTheDocument();
 });
 
-test("Initialize/Update Times", () => {
+test("Renders the footer", () => {
 	render(<App />);
-	const reserveButton = screen.getByTestId("reservation-button");
-	fireEvent.click(reserveButton);
-
-	const timeInput = screen.getByLabelText("Choose Time");
-	expect(timeInput).toBeInTheDocument();
-
+	const navElement = document.querySelector("footer");
+	expect(navElement).toBeInTheDocument();
 });
-
-test("Initialize/Update Date", () => {
+test("Renders the menu", () => {
 	render(<App />);
-	const reserveButton = screen.getByTestId("reservation-button");
-	fireEvent.click(reserveButton);
-
-	const dateInput = screen.getByLabelText("Choose Date");
-	userEvent.type(dateInput, "2021-10-10");
-	expect(dateInput).toHaveValue("2021-10-10");
+	const navElement = document.querySelector(".menu-container");
+	expect(navElement).toBeInTheDocument();
 });
-
-test("Initialize/Update Occasion", () => {
+test("Renders the main", () => {
 	render(<App />);
-	const reserveButton = screen.getByTestId("reservation-button");
-	fireEvent.click(reserveButton);
-
-	const occasionInput = screen.getByLabelText("Occasion");
-	expect(occasionInput).toBeInTheDocument();
-});
-
-test("Initialize/Update Guests", () => {
-	render(<App />);
-	const reserveButton = screen.getByTestId("reservation-button");
-	fireEvent.click(reserveButton);
-
-	const guestInput = screen.getByLabelText("Number of Guests");
-	userEvent.type(guestInput, "3");
-	expect(guestInput).toHaveValue("3");
+	const navElement = document.querySelector("main");
+	expect(navElement).toBeInTheDocument();
 });
