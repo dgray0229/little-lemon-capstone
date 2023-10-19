@@ -1,12 +1,11 @@
-import * as React from 'react';
+import { BookingForm } from '.';
 
 export interface IBookingProps {
 }
 
-export function Booking (props: IBookingProps) {
+
+export function Booking () {
   return (
-    <div>
-      
-    </div>
+    <BookingForm  />
   );
 }

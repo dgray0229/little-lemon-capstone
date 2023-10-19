@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { BookingProvider, Nav, Header, BookingForm } from './components';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App () {
 
   return (
-    <>
-    <h1>Little Lemon Website</h1>
-    </>
+    <BookingProvider>
+      <Nav />
+      <Header />
+      <BookingForm />
+    </BookingProvider>
   )
 }
 
